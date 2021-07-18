@@ -1,35 +1,48 @@
-let pos = [];
-let vel = [];
-let num = 100;
+let NUM = 500;
+let pos;
+let vel;
+let movers = new Array(NUM);
+let diameter;
+let c;
 
+function setup() {
+    createCanvas(800, 600, P2D);
+    colorMode(HSB, 360, 100, 100, 100);
+    blendMode(BLEND);
 
-function setup(){
-createCanvas(windowWidth,windowHeight);
-  
-  for (let i = 0;i<num;i++){
- this.pos =  createVector(random(width),random(height));  
-    this.vel =  createVector(random(-7,8),random(-7,8));
-  }
-  
+    for (let i = 0; i < NUM; i++) {
+        movers[i] = new Mover();
+    }
+}
+function draw() {
+    background(100, 200, 100, 100);
+
+    for (let i = 0; i < NUM; i++) {
+        movers[i].drawellipse();
+    }
 }
 
-function draw(){
-background(0);
-  this.pos.add(this.vel);
-    
-  for (let i = 0;i<num;i++){
+class Mover {
 
-    noStroke();
-    fill(random(255),random(100),100,100);
-  ellipse(this.pos.x,this.pos.y,50,50);
-    
-   
-  }
-   if(this.pos.x<0||this.pos.x>width){
-      this.vel.x = this.vel.x*-1;
-     fill(250,12,45);
+    constructor() {
+        noStroke();
+        this.pos = createVector(random(width), random(height));
+        this.vel = createVector(random(-4, 4), random(-4, 4));
+        this.diameter = random(8, 32);
+        this.c = color(random(360), 100, 100, random(100));
     }
-     if(this.pos.y<0||this.pos.y>width){
-      this.vel.y = this.vel.y*-1;
+
+    drawellipse() {
+        fill(this.c);
+        ellipse(this.pos.x, this.pos.y, this.diameter, this.diameter);
+        this.pos.add(this.vel);
+
+        if (this.pos.x < 0 || this.pos.x > width) {
+            this.vel.x = this.vel.x * -1;
+        }
+
+        if (this.pos.y < 0 || this.pos.y > height) {
+            this.vel.y = this.vel.y * -1;
+        }
     }
 }
