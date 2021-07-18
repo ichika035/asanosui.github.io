@@ -1,4 +1,11 @@
 
+let NUM = 500;
+let pos;
+let vel;
+let movers = new Array(NUM);
+let diameter;
+let c;
+
 function setup() {
   createCanvas(800, 600,P2D);
   colorMode(HSB,360,100,100,100);
