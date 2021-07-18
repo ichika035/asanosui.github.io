@@ -6,7 +6,7 @@ let diameter;
 let c;
 
 function setup() {
-    createCanvas(800, 600, P2D);
+    createCanvas(windowWidth, windowHeight, P2D);
     colorMode(HSB, 360, 100, 100, 100);
     blendMode(BLEND);
 
