@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head><!-settei 1-->
+    <meta charset="utf-8"><!-- 文字化け防止 -->
+</head>
+ 
+<body><!-- 画面に表示されるエリアの開始 -->
+    Hello World！
+</body><!-- 画面に表示されるエリアの終了 -->
+</html>
